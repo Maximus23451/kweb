@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Report a bug in Jupiter — the neptun2 replacement. Anonymous by default." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#04060f" />
+  <meta name="color-scheme" content="dark" />
+  <title>Bug Report — Jupiter</title>
+  <link rel="icon" type="image/gif" href="ico.gif" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-bug">
+
+  <div class="page-bg"></div>
+  <div class="animation-wrapper">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">
+        <span class="logo-mark">J</span>
+        <span id="site-name-nav">Jupiter</span>
+      </a>
+      <div class="nav-cta">
+        <div class="nav-links">
+          <a class="link" href="index.html">Home</a>
+          <a class="link" href="index.html#release">Releases</a>
+          <a class="link active" href="bugreport.html">Bug Report</a>
+        </div>
+        <a class="btn btn-outline" href="https://github.com/zoligamer/Jupiter" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" class="ic ic-fill" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="badge" id="bug-hero-badge">
+      <svg viewBox="0 0 24 24" class="ic" aria-hidden="true" style="margin-right:0.4rem;vertical-align:-0.12em;">
+        <path d="m8 2 1.88 1.88"/>
+        <path d="M14.12 3.88 16 2"/>
+        <path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/>
+        <path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/>
+        <path d="M12 20v-9"/>
+        <path d="M6.53 9C4.6 8.8 3 7.1 3 5"/>
+        <path d="M6.13 13.4C4.2 13.2 3 11.8 3 10"/>
+        <path d="M12 7h.01"/>
+      </svg>
+      Anonymous &amp; Safe
+    </div>
+    <h1>Report a <span class="gradient-text">Bug</span></h1>
+    <p class="hero-sub" id="bug-hero-sub">
+      Help make Jupiter better. Reports are anonymous by default — leave your email if you
+      want to hear back once it's fixed.
+    </p>
+  </header>
+
+  <!-- BUG FORM -->
+  <section class="form-section">
+    <div class="form-wrapper">
+
+      <div id="form-success" class="success-banner" style="display:none;">
+        <span class="b-ico">
+          <svg viewBox="0 0 24 24" class="ic" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Report submitted!</strong><br />
+          Thank you — the developer has been notified. If you left an email, you'll hear back once it's fixed.
+        </div>
+      </div>
+      <div id="form-error" class="error-banner" style="display:none;">
+        <span class="b-ico">
+          <svg viewBox="0 0 24 24" class="ic" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" x2="12" y1="8" y2="12"/>
+            <line x1="12" x2="12.01" y1="16" y2="16"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Submission failed.</strong><br />
+          <span id="error-msg">Please try again later.</span>
+        </div>
+      </div>
+
+      <form id="bugForm" novalidate>
+        <div class="form-group">
+          <label for="bugTitle">Bug Title <span class="required">*</span></label>
+          <input type="text" id="bugTitle" placeholder="Short summary of the issue" required maxlength="100" autocomplete="off" />
+          <span class="char-count" id="titleCount">0 / 100</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bugCategory">Category <span class="required">*</span></label>
+            <select id="bugCategory" required>
+              <option value="">— Select —</option>
+              <option>UI / Display issue</option>
+              <option>Login / 2FA Authentication</option>
+              <option>Timetable / Schedule</option>
+              <option>Grades / Results</option>
+              <option>Finances / Payments</option>
+              <option>Accessibility</option>
+              <option>Notifications</option>
+              <option>Performance / Crash</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bugSeverity">Severity <span class="required">*</span></label>
+            <select id="bugSeverity" required>
+              <option value="">— Select —</option>
+              <option value="low">Low — minor annoyance</option>
+              <option value="medium">Medium — affects usability</option>
+              <option value="high">High — blocks usage</option>
+              <option value="critical">Critical — crash / data loss</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bugDesc">Description <span class="required">*</span></label>
+          <textarea id="bugDesc" rows="5" placeholder="What happened, what did you expect, and how can we reproduce it?" required maxlength="2000"></textarea>
+          <span class="char-count" id="descCount">0 / 2000</span>
+        </div>
+
+        <div class="form-group">
+          <label for="bugSteps">Steps to Reproduce</label>
+          <textarea id="bugSteps" rows="3" placeholder="1. Open app&#10;2. Go to...&#10;3. Tap on...&#10;4. See error" maxlength="1000"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bugDevice">Device / OS Version</label>
+            <input type="text" id="bugDevice" placeholder="e.g. Samsung Galaxy S23, Android 14" maxlength="100" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="bugAppVersion">App Version</label>
+            <input type="text" id="bugAppVersion" placeholder="e.g. 1.0.5 (app → About)" maxlength="30" autocomplete="off" />
+          </div>
+        </div>
+
+        <!-- Optional email -->
+        <div class="email-opt-in">
+          <div class="email-opt-header">
+            <div class="email-icon">
+              <svg viewBox="0 0 24 24" class="ic" aria-hidden="true">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Want to be notified when this is fixed?</strong>
+              <p>Completely optional — leave your email and the developer will ping you once resolved.</p>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:1rem;">
+            <label for="bugEmail">Your Email <span class="hint">(optional)</span></label>
+            <input type="email" id="bugEmail" placeholder="you@example.com" autocomplete="email" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+          <span id="submitText">Send Bug Report</span>
+          <span id="submitLoading" style="display:none;">Sending…</span>
+        </button>
+
+        <p class="privacy-note">
+          Reports are anonymous unless you provide an email. No IP addresses are stored — only basic
+          device/browser context to help diagnose the issue.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="index.html" id="footer-site-name">Jupiter</a>
+      <span class="sep">·</span>
+      <span>© <span id="footer-year">2026</span> · neptun2 replacement by <a href="https://github.com/zoligamer" target="_blank" rel="noopener">@zoligamer</a></span>
+      <span class="sep">·</span>
+      <span>Hosted by <a id="footer-host-link" href="https://mludio.my.id" target="_blank" rel="noopener">Pedroツ</a></span>
+      <span class="sep">·</span>
+      <a href="admin.html">Admin</a>
+    </div>
+  </footer>
+
+  <script src="particles.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
